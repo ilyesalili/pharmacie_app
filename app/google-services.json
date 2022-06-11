@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "183639983364",
+    "project_id": "acsi-f0b3b",
+    "storage_bucket": "acsi-f0b3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183639983364:android:3152ccddf1793a4996bc51",
+        "android_client_info": {
+          "package_name": "com.example.acsi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183639983364-i82n37msomhlct0r78r3maa20l1h8jnj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkCGkODKom2TRRB775FdOWAy_vX4ySTOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183639983364-i82n37msomhlct0r78r3maa20l1h8jnj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
