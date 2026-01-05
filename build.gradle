@@ -1,24 +1,48 @@
+// 1. BLOC BUILDSCRIPT : Définit les outils nécessaires au build
 buildscript {
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
+        // Plugin Android
         classpath "com.android.tools.build:gradle:7.0.4"
+        // Plugin Google Services (Firebase, etc.)
         classpath 'com.google.gms:google-services:4.3.10'
-        // Ajoute cette ligne ici :
+        // AJOUT : Plugin SonarQube pour Gradle
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3"
     }
 }
 
-// Applique le plugin de cette façon
+// 2. APPLICATION DU PLUGIN
 apply plugin: "org.sonarqube"
 
-// Ta configuration Sonar reste la même
+// 3. CONFIGURATION SONARQUBE
 sonar {
     properties {
+        // Tes identifiants générés
         property "sonar.projectKey", "ilyesalili_pharmacie_app_2175cc62-ac19-4176-9539-d740d1e18cb7"
         property "sonar.projectName", "pharmacie_app"
+        
+        // URL de ton serveur local sur macOS
         property "sonar.host.url", "http://localhost:9000"
+        
+        // Configuration spécifique pour Android
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.sources", "src/main/java,src/main/kotlin"
+        property "sonar.java.binaries", "build/intermediates/javac/debug/classes"
     }
+}
+
+// 4. CONFIGURATION COMMUNE À TOUS LES MODULES (app, etc.)
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// 5. TÂCHE DE NETTOYAGE
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
