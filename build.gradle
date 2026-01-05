@@ -1,7 +1,3 @@
-plugins {
-    id "org.sonarqube" version "7.2.0.6526"
-}
-
 buildscript {
     repositories {
         google()
@@ -10,28 +6,19 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.4"
         classpath 'com.google.gms:google-services:4.3.10'
+        // Ajoute cette ligne ici :
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3"
     }
 }
 
-// Configuration globale Sonar
+// Applique le plugin de cette façon
+apply plugin: "org.sonarqube"
+
+// Ta configuration Sonar reste la même
 sonar {
     properties {
         property "sonar.projectKey", "ilyesalili_pharmacie_app_2175cc62-ac19-4176-9539-d740d1e18cb7"
         property "sonar.projectName", "pharmacie_app"
         property "sonar.host.url", "http://localhost:9000"
-        // On définit les sources pour Android
-        property "sonar.sources", "src/main/java"
-        property "sonar.binaries", "build/intermediates/javac/debug/classes"
     }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
